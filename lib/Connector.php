@@ -39,11 +39,13 @@ final class Connector {
     }
 
     public function parseColumn(array $column) {
-
+        var_dump($column);
         $info = new ColumnInfo();
         $info->parseName($column['Field']);
         $info->parseType($column['Type']);
         $info->parseLength($column['Type']);
+        $info->parseUnsigned($column['Type']);
+        $info->parseZerofill($column['Type']);
         $info->parseNull($column['Null']);
         $info->parseDefault($column['Default']);
         $info->parseAutoIncrement($column['Extra']);
